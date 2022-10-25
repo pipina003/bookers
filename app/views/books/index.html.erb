@@ -1,0 +1,35 @@
+<h1>投稿一覧</h1>
+
+<h4>Title</h4>
+<!--each構文に=は不要-->
+<% @books.each do |book| %>
+<!--タイトル、本文-->
+  <span><%= book.title %></span>
+  <span><%= book.body %></span>
+
+<!--リンク-->
+  <span>
+    <%= link_to 'Show', "/books/#{book.id}" %>
+  </span>
+
+  <!--下のspanに編集画面のリンクを記入%= link_to 表示させるテキスト , リンク先URL [,オプション] %-->
+  <span><%= link_to 'Edit', "/books/#{book.id}/edit" %>
+  </span>
+  <!--下に削除画面のリンクを記入-->
+  <span><%= link_to 'Destroy', "/books/#{book.id}",method: :delete, "data-confirm" => "Are you sure?" %>
+  </span>
+<% end %>
+
+
+<h1>Books</h1>
+<h2>New book</h2>
+<!--form_with部分-->
+<%= form_with model:@book do |f| %>
+<h4>Title</h4>
+<%= f.text_field:title %>
+
+<h4>Body</h4>
+<%= f.text_area:body %>
+
+<%= f.submit'Create book' %>
+<% end %>
