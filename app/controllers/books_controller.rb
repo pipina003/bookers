@@ -9,9 +9,15 @@ class BooksController < ApplicationController
     # データを受け取り新規登録するためのインスタンス作成
    @book = Book.new(book_params)
     # データをデータベースに保存するためのsaveメソッド実行
-   @book.save
+   if @book.save
+   # フラッシュメッセージを定義し詳細画面へリダイレクト
+    flash[:notice] ="Book was successfully created."
     # 投稿してそのまま詳細画面へリダイレクト
-   redirect_to book_path(@book.id)
+    redirect_to book_path(@book.id)
+   else
+    @books=Book.all
+    render:index
+   end
   end
 
   def destroy
@@ -35,8 +41,13 @@ class BooksController < ApplicationController
   def update
    # 更新、保存
    @book = Book.find(params[:id])
-   @book.update(book_params)
-    redirect_to book_path(@book.id)
+   if @book.update(book_params)
+   # フラッシュメッセージ
+   flash[:notice] ="Book was successfully updated."
+   redirect_to book_path(@book.id)
+   else
+   render:edit
+   end
   end
 
   private
