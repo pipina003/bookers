@@ -1,14 +1,12 @@
 <!--フラッシュメッセージ-->
 <%= flash[:notice] %>
 
-<h3>Title</h3>
-<P><%= @book.title %></P>
+<P><strong>Title: </strong><%= @book.title %></P>
 
-<h3>Body</h3>
-<P><%= @book.body %></P>
+<p><strong>Body: </strong><%= @book.body %></p>
 
 <%= link_to "Edit", edit_book_path(@book.id) %>
 <!--戻る-->
 <span>
-  <%= link_to 'Back', "/books" %>
+  | <%= link_to 'Back', "/books" %>
 </span>

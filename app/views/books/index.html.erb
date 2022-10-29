@@ -1,4 +1,4 @@
-<h1>投稿一覧</h1>
+<h1>Books</h1>
 
 <h4>Title</h4>
 <!--each構文に=は不要-->
@@ -21,7 +21,6 @@
 <% end %>
 
 
-<h1>Books</h1>
 <h2>New book</h2>
 <!--エラーメッセージ-->
 <% if @book.errors.any? %>
@@ -35,11 +34,10 @@
 
 <!--form_with部分-->
 <%= form_with model:@book do |f| %>
-<h4>Title</h4>
+<h6>Title</h6>
 <%= f.text_field:title %>
 
-<h4>Body</h4>
+<h6>Body</h6>
 <%= f.text_area:body %>
-
 <%= f.submit'Create Book' %>
 <% end %>
