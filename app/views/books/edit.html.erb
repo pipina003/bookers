@@ -18,8 +18,9 @@
 
   <h4>body</h4>
   <%= f.text_area :body %>
-
+<div class="Update-buttom">
   <%= f.submit 'Update Book' %>
+</div>
 
 <!--詳細ページリンク-->
  <span>
@@ -27,6 +28,6 @@
  </span>
  <!--戻る-->
  <span>
-  <%= link_to 'Back', "/books" %>
+  | <%= link_to 'Back', "/books" %>
  </span>
 <% end %>
