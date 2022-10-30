@@ -6,6 +6,7 @@
     <tr>
       <th>Title</th>
       <th>Body</th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -15,7 +16,7 @@
    <!--each構文に=は不要-->
    <% @books.each do |book| %>
    <!--タイトル、本文-->
-    <td><%= book.title %></td>
+    <td class="head-title"><%= book.title %></td>
     <td><%= book.body %></td>
 
     <!--リンク-->
@@ -50,11 +51,14 @@
 
 <!--form_with部分-->
 <%= form_with model:@book do |f| %>
-<h2>Title</h2>
+<div class="field">
+<%= f.label :title %></br>
 <%= f.text_field:title %>
-
-<h2>Body</h2>
+</div>
+<div class="field">
+<%= f.label :body %></br>
 <%= f.text_area:body %>
+</div>
 
 
 <div class="create-buttom">
