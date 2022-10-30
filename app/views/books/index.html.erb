@@ -37,7 +37,6 @@
 
 
 
-
 <h2>New book</h2>
 <!--エラーメッセージ-->
 <% if @book.errors.any? %>
@@ -50,22 +49,21 @@
 <% end %>
 
 <!--form_with部分-->
-<%= form_with model:@book do |f| %>
-<div class="field">
-<%= f.label :title %></br>
-<%= f.text_field:title %>
-</div>
-<div class="field">
-<%= f.label :body %></br>
-<%= f.text_area:body %>
-</div>
+ <%= form_with model:@book do |f| %>
+ <div class="field">
+  <%= f.label :title %></br>
+  <%= f.text_field:title %>
+ </div>
+
+ <div class="field">
+  <%= f.label :body %></br>
+  <%= f.text_area:body %>
+ </div>
 
 
-<div class="create-buttom">
-<%= f.submit'Create Book' %>
-</div>
+ <div class="create-buttom">
+  <%= f.submit'Create Book' %>
+ </div>
 <% end %>
-
-
 
 </body>
